@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+    brightnessctl
+  ];
   xsession.windowManager.i3 =
     let
       cfg =
@@ -134,6 +137,13 @@
               "exec ${pkgs.scrot}/bin/scrot ${config.home.homeDirectory}/screenshots/`date +%Y-%m-%d_%H:%M:%S`.png";
 
           };
+          keycodebindings =  pkgs.lib.mkOptionDefault {
+              "232" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
+              "233" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +10%";
+              "121" = "exec ${pkgs.alsaUtils}/bin/amixer set Master toggle";
+              "122" = "exec ${pkgs.alsaUtils}/bin/amixer set Master 10%-";
+              "123" = "exec ${pkgs.alsaUtils}/bin/amixer set Master 10%+";
+            };
       };
       extraConfig = "${cfg.extra}";
     };

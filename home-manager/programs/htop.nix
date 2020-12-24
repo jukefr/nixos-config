@@ -19,6 +19,10 @@
           kind = "Memory";
           mode = 1;
         }
+        {
+          kind = "Swap";
+          mode = 1;
+        }
       ];
     };
   };
