@@ -126,7 +126,7 @@
         "module/date" = {
           type = "internal/date";
           interval = "1.0";
-          time = "%I:%M %p";
+          time = "%H:%M";
           time-alt = "%Y-%m-%d%";
           format = "<label>";
           format-background = "\${color.mf}";
