@@ -6,13 +6,17 @@
       cfg =
         if builtins.getEnv "CURRENT_HOST" == "surface"
         then {
-          fontsize = "18";
-          barheight = 28;
+          fontsize1 = "18;6";
+          fontsize2 = "18;4";
+          fontsize3 = "18;4";
+          barheight = 36;
           script = "MONITOR=eDP1 polybar main &";
           modules = "alsa_i alsa separator cpu_i cpu separator memory_i memory separator filesystem_i filesystem separator network_i network separator battery_i battery separator date_i date";
         }
         else {
-          fontsize = "12";
+          fontsize1 = "12;2";
+          fontsize2 = "12;2";
+          fontsize3 = "12;2";
           barheight = 18;
           script = ''
             MONITOR=DP-2 polybar main &
@@ -358,9 +362,9 @@
           padding = 1;
           module-margin-left = 0;
           module-margin-right = 0;
-          font-0 = "Termsyn:size=${cfg.fontsize};2";
-          font-1 = "Siji:size=${cfg.fontsize};2";
-          font-2 = "Terminus:size=${cfg.fontsize};2";
+          font-0 = "Termsyn:size=${cfg.fontsize1}";
+          font-1 = "Siji:size=${cfg.fontsize2}";
+          font-2 = "Terminus:size=${cfg.fontsize3}";
           modules-left = "i3 separator";
           modules-center = "title";
           modules-right = cfg.modules;
