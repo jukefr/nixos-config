@@ -14,7 +14,7 @@ $ nix-channel --update && home-manager switch
 
 
 # Surface
-![screen](https://i.imgur.com/2n67ubM.png)
+![screen](https://i.imgur.com/6Sjgufq.png)
 ```
 $ ln -sf $PWD/configuration-surface.nix /etc/nixos/configuration.nix
 

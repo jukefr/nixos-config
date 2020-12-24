@@ -68,8 +68,9 @@
     };
     shellInit = ''
       set -gx PATH ${config.home.homeDirectory}/.npm-global/bin $PATH
-      set -Ux EDITOR nvim
-      set -Ux VISUAL nvim
+      set -gx EDITOR ${pkgs.neovim}/bin/nvim
+      set -gx VISUAL ${pkgs.neovim}/bin/nvim
+      set -gx SHELL ${pkgs.fish}/bin/fish
     '';
   };
 }

@@ -2,8 +2,17 @@
 
 {
   home = {
-    packages = with pkgs; [ neofetch ];
-    file = {
+    packages = with pkgs; [ neofetch pciutils ];
+    file = let
+     cfg =
+       if builtins.getEnv "CURRENT_HOST" == "surface"
+       then {
+         imgSize = "400";
+       }
+       else {
+         imgSize = "200";
+       };
+   in {
       ".config/neofetch/config.conf".text = ''
         # https://github.com/dylanaraps/neofetch/wiki/Customizing-Info
         print_info() {
@@ -51,7 +60,7 @@
         memory_percent="on"
         memory_unit="gib"
         package_managers="off"
-        shell_path="on"
+        shell_path="off"
         shell_version="on"
         speed_type="bios_limit"
         speed_shorthand="on"
@@ -104,7 +113,7 @@
         thumbnail_dir="''${XDG_CACHE_HOME:-''${HOME}/.cache}/thumbnails/neofetch"
         crop_mode="normal"
         crop_offset="center"
-        image_size="200px"
+        image_size="${cfg.imgSize}px"
         gap=3
         yoffset=2
         background_color=
