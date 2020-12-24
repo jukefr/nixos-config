@@ -44,7 +44,7 @@
   ];
 
   imports =
-    [ ./systemd.nix ./xresources.nix ./xsession.nix ./programs ./services ];
+    [ ./wallpaper.nix ./systemd.nix ./xresources.nix ./xsession.nix ./programs ./services ];
 
   home.stateVersion = "21.03";
 }
