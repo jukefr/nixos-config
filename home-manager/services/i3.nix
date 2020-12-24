@@ -114,7 +114,7 @@
           }
           {
             command =
-              "${pkgs.feh}/bin/feh --no-fehbg --bg-tile '${config.home.homeDirectory}/.background-image'";
+              "${pkgs.feh}/bin/feh --no-fehbg --bg-tile '${config.home.file.".background-image".source}'";
             always = true;
             notification = false;
           }

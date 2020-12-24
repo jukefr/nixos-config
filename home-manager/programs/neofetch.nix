@@ -37,18 +37,6 @@
             info "gpu" gpu
             info "mem" memory
 
-            # info "GPU Driver" gpu_driver  # Linux/macOS only
-            # info "CPU Usage" cpu_usage
-            # info "Disk" disk
-            # info "Battery" battery
-            # info "Font" font
-            # info "Song" song
-            # [[ "$player" ]] && prin "Music Player" "$player"
-            # info "Local IP" local_ip
-            # info "Public IP" public_ip
-            # info "Users" users
-            # info "Locale" locale  # This only works on glibc systems.
-
             info cols
         }
 
@@ -105,7 +93,7 @@
         battery_display="off"
         disk_display="off"
         image_backend="kitty"
-        image_source="${config.home.homeDirectory}/.background-image"
+        image_source="${config.home.file.".background-image".source}"
         ascii_distro="auto"
         ascii_colors=(distro)
         ascii_bold="on"
