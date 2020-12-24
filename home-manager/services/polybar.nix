@@ -11,7 +11,8 @@
           fontsize3 = "18;4";
           barheight = 36;
           script = "MONITOR=eDP1 polybar main &";
-          modules = "alsa_i alsa separator cpu_i cpu separator memory_i memory separator filesystem_i filesystem separator network_i network separator battery_i battery separator date_i date";
+          modulesLeft = "i3 separator cpu_i cpu separator memory_i memory separator filesystem_i filesystem";
+          modulesRight = "alsa_i alsa separator network_i network separator battery_i battery separator date_i date";
         }
         else {
           fontsize1 = "12;2";
@@ -22,7 +23,8 @@
             MONITOR=DP-2 polybar main &
             MONITOR=DP-4 polybar main &
           '';
-          modules = "alsa_i alsa separator cpu_i cpu separator memory_i memory separator filesystem_i filesystem separator date_i date";
+          modulesLeft = "i3";
+          modulesRight = "alsa_i alsa separator cpu_i cpu separator memory_i memory separator filesystem_i filesystem separator network_i network separator date_i date";
         };
     in
     {
@@ -76,7 +78,7 @@
           format-muted-background = "\${color.mf}";
           format-muted-foreground = "\${color.red}";
           format-muted-padding = 1;
-          label-muted = "Muted";
+          label-muted = "0%";
           label-muted-foreground = "\${color.red}";
         };
 
@@ -256,7 +258,7 @@
           format-disconnected-background = "\${color.mf}";
           format-disconnected-foreground = "\${color.fg}";
           format-disconnected-padding = "1";
-          label-connected = "%essid%";
+          label-connected = "%local_ip%";
           label-disconnected = "404";
         };
 
@@ -365,9 +367,9 @@
           font-0 = "Termsyn:size=${cfg.fontsize1}";
           font-1 = "Siji:size=${cfg.fontsize2}";
           font-2 = "Terminus:size=${cfg.fontsize3}";
-          modules-left = "i3 separator";
+          modules-left = cfg.modulesLeft;
           modules-center = "title";
-          modules-right = cfg.modules;
+          modules-right = cfg.modulesRight;
           separator = "";
           spacing = 0;
           dim-value = "1.0";
