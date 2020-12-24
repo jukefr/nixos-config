@@ -15,6 +15,9 @@ $ nix-channel --update && home-manager switch
 
 # Surface
 ![screen](https://i.imgur.com/6Sjgufq.png)
+
+Builds are distributed to the `builder` host.
+
 ```
 $ ln -sf $PWD/configuration-surface.nix /etc/nixos/configuration.nix
 
