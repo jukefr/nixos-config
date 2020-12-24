@@ -5,6 +5,6 @@
     enable = true;
     userName = "Kevin Jullien";
     userEmail = "git@juke.fr";
-    extraConfig = { core = { editor = "nvim"; }; };
+    extraConfig = { core = { editor = "nvim"; }; pull = { rebase = false; }; };
   };
 }
