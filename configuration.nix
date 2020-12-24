@@ -19,7 +19,7 @@
   hardware.steam-hardware.enable = true; # for vr stuff
   environment.pathsToLink = [ "/libexec" ];
   services.xserver.enable = true;
-  services.xserver.displayManager.lightdm.background = ./lockscreen-image;
+  services.xserver.displayManager.lightdm.background = ./wallpapers/lockscreen-image;
   services.xserver.desktopManager.xterm.enable = false;
   services.xserver.desktopManager.session = [{
     name = "i3-gaps";
