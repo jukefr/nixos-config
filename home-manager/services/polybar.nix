@@ -10,6 +10,7 @@
           fontsize2 = "18;4";
           fontsize3 = "18;4";
           barheight = 36;
+          network = "wlp1s0";
           script = "MONITOR=eDP1 polybar main &";
           modulesLeft = "i3 separator cpu_i cpu separator memory_i memory separator filesystem_i filesystem";
           modulesRight = "alsa_i alsa separator network_i network separator battery_i battery separator date_i date";
@@ -19,6 +20,7 @@
           fontsize2 = "12;2";
           fontsize3 = "12;2";
           barheight = 18;
+          network = "enp5s0";
           script = ''
             MONITOR=DP-2 polybar main &
             MONITOR=DP-4 polybar main &
@@ -246,7 +248,7 @@
 
         "module/network" = {
           type = "internal/network";
-          interface = "wlp1s0";
+          interface = cfg.network;
           interval = "1.0";
           accumulate-stats = "true";
           unknown-as-up = "true";
@@ -264,7 +266,7 @@
 
         "module/network_i" = {
           type = "internal/network";
-          interface = "wlp1s0";
+          interface = cfg.network;
           interval = "1.0";
           accumulate-stats = "true";
           unknown-as-up = "true";
