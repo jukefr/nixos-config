@@ -22,18 +22,19 @@
   hardware.pulseaudio.support32Bit = true;
   environment.pathsToLink = [ "/libexec" ];
   services.xserver.enable = true;
-  nix.buildMachines = [ {
-	 hostName = "builder";
-	 system = "x86_64-linux";
-	 maxJobs = 1;
-	 speedFactor = 2;
-	 supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
-	 mandatoryFeatures = [ ];
-	}] ;
-	nix.distributedBuilds = true;
-	nix.extraOptions = ''
-		builders-use-substitutes = true
+  nix.buildMachines = [{
+    hostName = "builder";
+    system = "x86_64-linux";
+    maxJobs = 1;
+    speedFactor = 2;
+    supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+    mandatoryFeatures = [ ];
+  }];
+  nix.distributedBuilds = true;
+  nix.extraOptions = ''
+    builders-use-substitutes = true
   '';
+  services.xserver.dpi = 192;
   services.xserver.displayManager.lightdm.background = ./lockscreen-image;
   services.xserver.desktopManager.xterm.enable = false;
   services.xserver.desktopManager.session = [{
