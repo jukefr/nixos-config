@@ -10,6 +10,7 @@
   services.xserver.libinput.enable = true;
   networking.hostId = "f1250e3b";
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.consoleMode = "auto";
   boot.loader.efi.canTouchEfiVariables = true;
   boot.extraModprobeConfig = "options kvm_intel nested=1";
   virtualisation.docker.enable = true;
@@ -21,6 +22,20 @@
   hardware.pulseaudio.support32Bit = true;
   environment.pathsToLink = [ "/libexec" ];
   services.xserver.enable = true;
+  nix.buildMachines = [ {
+	 hostName = "builder";
+	 system = "x86_64-linux";
+	 maxJobs = 1;
+	 speedFactor = 2;
+	 supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+	 mandatoryFeatures = [ ];
+	}] ;
+	nix.distributedBuilds = true;
+	nix.extraOptions = ''
+		builders-use-substitutes = true
+	'';
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.sddm.enableHidpi = true;
   services.xserver.desktopManager.xterm.enable = false;
   services.xserver.desktopManager.session = [{
     name = "i3-gaps";
