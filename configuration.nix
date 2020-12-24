@@ -1,7 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    #../nixos-surface/builder.nix 
+  ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.extraModprobeConfig = "options kvm_intel nested=1";
@@ -40,6 +43,7 @@
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = false;
   fonts.enableDefaultFonts = true;
+  services.sshd.enable = true;
   fonts.fonts = with pkgs; [ hack-font powerline-fonts terminus_font siji ];
   networking.hosts = {
     "127.0.0.1" = [
@@ -57,4 +61,3 @@
   system.stateVersion = "20.09";
 
 }
-
