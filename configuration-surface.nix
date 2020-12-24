@@ -33,7 +33,8 @@
 	nix.distributedBuilds = true;
 	nix.extraOptions = ''
 		builders-use-substitutes = true
-	'';
+  '';
+  services.xserver.displayManager.lightdm.background = ./lockscreen-image;
   services.xserver.desktopManager.xterm.enable = false;
   services.xserver.desktopManager.session = [{
     name = "i3-gaps";
