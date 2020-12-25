@@ -48,6 +48,7 @@
     extraGroups = [ "wheel" "libvirtd" "docker" "power" ];
   };
   system.autoUpgrade.enable = true;
+  services.fail2ban.enable = true;
   system.autoUpgrade.allowReboot = false;
   environment.systemPackages = [ pkgs.acpi pkgs.acpid ];
   fonts.enableDefaultFonts = true;

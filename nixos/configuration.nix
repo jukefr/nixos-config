@@ -23,6 +23,7 @@
   services.xserver.layout = "us";
   sound.enable = true;
   hardware.pulseaudio.enable = true;
+  services.fail2ban.enable = true;
   users.users.user = {
     isNormalUser = true;
     extraGroups = [ "wheel" "libvirtd" "docker" "power" ];
