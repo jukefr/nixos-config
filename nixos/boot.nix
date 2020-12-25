@@ -17,7 +17,7 @@
   services.xserver.displayManager.lightdm.greeters.mini.user = "user";
   services.xserver.displayManager.lightdm.greeters.mini.extraConfig = ''
     [greeter-theme]
-    window-color = "#F92672"
+    window-color = "#bd93f9"
   '';
   services.xserver.desktopManager.xterm.enable = false;
   services.xserver.desktopManager.session = [{
