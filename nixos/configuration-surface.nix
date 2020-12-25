@@ -2,17 +2,15 @@
 
 {
   imports = [
+    ./boot.nix
     ./hardware-configuration-surface.nix
-    ../nixos-surface/surface.nix
-    ../nixos-config-private/wifi.nix
+    ../../nixos-surface/surface.nix
+    ../../nixos-config-private/wifi.nix
   ];
+  boot.loader.grub.fontSize = 32;
   networking.wireless.userControlled.enable = true;
   services.xserver.libinput.enable = true;
   networking.hostId = "f1250e3b";
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.consoleMode = "1";
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.extraModprobeConfig = "options kvm_intel nested=1";
   virtualisation.docker.enable = true;
   virtualisation.libvirtd.enable = true;
   hardware.opengl.driSupport = true;
@@ -35,15 +33,6 @@
     builders-use-substitutes = true
   '';
   services.xserver.dpi = 192;
-  services.xserver.displayManager.lightdm.background = ./wallpapers/lockscreen-image;
-  services.xserver.desktopManager.xterm.enable = false;
-  services.xserver.desktopManager.session = [{
-    name = "i3-gaps";
-    start = ''
-      ${pkgs.runtimeShell} $HOME/.xsession &
-      waitPID=$!
-    '';
-  }];
   networking.hostName = "nixos";
   time.timeZone = "Europe/Paris";
   networking.useDHCP = false;

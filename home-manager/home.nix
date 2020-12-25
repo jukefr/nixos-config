@@ -6,6 +6,13 @@
   home.homeDirectory = "/home/user";
   nixpkgs.config.allowUnfree = true;
 
+  home.sessionVariables = {
+    MOZ_USE_XINPUT2 = 1;
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    BROWSER = "firefox";
+  };
+
   home.packages = with pkgs; [
     awscli
     binutils
@@ -44,7 +51,7 @@
   ];
 
   imports =
-    [ ./wallpaper.nix ./systemd.nix ./xresources.nix ./xsession.nix ./programs ./services ];
+    [ ./wallpaper.nix ./xresources.nix ./xsession.nix ./programs ./services ];
 
   home.stateVersion = "21.03";
 }

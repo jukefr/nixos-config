@@ -2,12 +2,9 @@
 
 {
   imports = [
+    ./boot.nix
     ./hardware-configuration.nix
-    #../nixos-surface/builder.nix 
   ];
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.extraModprobeConfig = "options kvm_intel nested=1";
   virtualisation.docker.enable = true;
   virtualisation.libvirtd.enable = true;
   hardware.opengl.driSupport = true;
@@ -18,16 +15,6 @@
   hardware.pulseaudio.support32Bit = true;
   hardware.steam-hardware.enable = true; # for vr stuff
   environment.pathsToLink = [ "/libexec" ];
-  services.xserver.enable = true;
-  services.xserver.displayManager.lightdm.background = ./wallpapers/lockscreen-image;
-  services.xserver.desktopManager.xterm.enable = false;
-  services.xserver.desktopManager.session = [{
-    name = "i3-gaps";
-    start = ''
-      ${pkgs.runtimeShell} $HOME/.xsession &
-      waitPID=$!
-    '';
-  }];
   networking.hostName = "nixos";
   time.timeZone = "Europe/Paris";
   networking.useDHCP = false;

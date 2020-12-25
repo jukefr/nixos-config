@@ -1,7 +1,7 @@
 # Desktop
 ![screen](https://i.imgur.com/mw2q4ZD.png)
 ```
-$ ln -sf $PWD/configuration.nix /etc/nixos/configuration.nix
+$ sudo ln -sf $PWD/nixos/configuration.nix /etc/nixos/configuration.nix
 
 $ sudo nixos-rebuild --upgrade switch
 
@@ -19,7 +19,7 @@ $ nix-channel --update && home-manager switch
 Builds are distributed to the `builder` host.
 
 ```
-$ ln -sf $PWD/configuration-surface.nix /etc/nixos/configuration.nix
+$ sudo ln -sf $PWD/nixos/configuration-surface.nix /etc/nixos/configuration.nix
 
 $ sudo nixos-rebuild --upgrade switch
 
