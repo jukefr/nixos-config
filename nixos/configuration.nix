@@ -29,6 +29,11 @@
     extraGroups = [ "wheel" "libvirtd" "docker" "power" ];
     shell = pkgs.fish;
   };
+  nix.trustedUsers = [
+    "root"
+    "user"
+    "@wheel"
+  ];
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = false;
   fonts.enableDefaultFonts = true;
