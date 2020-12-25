@@ -1,5 +1,5 @@
 # Desktop
-![screen](https://i.imgur.com/mw2q4ZD.png)
+![screen](https://i.ibb.co/1mN6KWy/2020-12-24-23-28-401.png)
 ```
 $ sudo ln -sf $PWD/nixos/configuration.nix /etc/nixos/configuration.nix
 
