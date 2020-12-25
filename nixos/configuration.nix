@@ -31,7 +31,8 @@
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = false;
   fonts.enableDefaultFonts = true;
-  services.sshd.enable = true;
+  services.openssh.enable = true;
+  services.openssh.passwordAuthentication = false;
   fonts.fonts = with pkgs; [ hack-font powerline-fonts terminus_font siji ];
   networking.hosts = {
     "127.0.0.1" = [

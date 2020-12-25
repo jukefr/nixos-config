@@ -49,9 +49,11 @@
   };
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = false;
+  environment.systemPackages = [ pkgs.acpi pkgs.acpid ];
   fonts.enableDefaultFonts = true;
   fonts.fonts = with pkgs; [ hack-font powerline-fonts terminus_font siji ];
   services.openssh.enable = true;
+  services.openssh.passwordAuthentication = false;
   networking.hosts = {
     "127.0.0.1" = [
       "front.cs"
