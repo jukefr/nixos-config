@@ -28,6 +28,7 @@
     gcc
     gparted
     hexyl
+    noip
     imagemagick
     jetbrains.webstorm
     lutris
