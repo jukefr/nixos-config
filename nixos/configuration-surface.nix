@@ -10,6 +10,8 @@
   boot.loader.grub.fontSize = 32;
   networking.wireless.userControlled.enable = true;
   services.xserver.libinput.enable = true;
+  networking.enableIPv6 = false;
+  networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
   networking.hostId = "f1250e3b";
   virtualisation.docker.enable = true;
   virtualisation.libvirtd.enable = true;

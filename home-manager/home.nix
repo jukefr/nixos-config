@@ -15,7 +15,11 @@
 
   home.packages = with pkgs; [
     awscli
+    i3lock
     binutils
+    bluez
+    bluez-alsa
+    bluez-tools
     docker-compose
     ctags
     etcd
@@ -27,6 +31,7 @@
     grpc
     gcc
     gparted
+    openvpn
     hexyl
     imagemagick
     jetbrains.webstorm

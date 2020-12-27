@@ -135,6 +135,8 @@
             "${modifier}+space" = "floating toggle";
             "${modifier}+Escape" =
               "exec ${pkgs.scrot}/bin/scrot ${config.home.homeDirectory}/screenshots/`date +%Y-%m-%d_%H:%M:%S`.png";
+            "${modifier}+Shift+Escape" =
+              "exec ${pkgs.i3lock}/bin/i3lock -i ${config.home.file.".lockscreen-image".source}";
 
           };
           keycodebindings =  pkgs.lib.mkOptionDefault {
