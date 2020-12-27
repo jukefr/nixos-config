@@ -33,6 +33,7 @@
     gparted
     openvpn
     hexyl
+    noip
     imagemagick
     jetbrains.webstorm
     lutris
