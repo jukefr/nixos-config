@@ -17,6 +17,8 @@
   virtualisation.docker.enable = true;
   virtualisation.libvirtd.enable = true;
   hardware.opengl.driSupport = true;
+  programs.ssh.setXAuthLocation = true;
+  programs.ssh.forwardX11 = true;
   nixpkgs.config.allowUnfree = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
@@ -53,10 +55,21 @@
   system.autoUpgrade.enable = true;
   services.fail2ban.enable = true;
   system.autoUpgrade.allowReboot = false;
-  environment.systemPackages = [ pkgs.acpi pkgs.acpid ];
+      nixpkgs.config.packageOverrides = pkgs: {
+        nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+          inherit pkgs;
+        };
+      };
+ 
+  environment.systemPackages = [
+    pkgs.acpi
+    pkgs.acpid
+    pkgs.nur.repos.clefru.parsecgaming 	
+  ];
   fonts.enableDefaultFonts = true;
   fonts.fonts = with pkgs; [ hack-font powerline-fonts terminus_font siji ];
-  services.openssh.enable = true;
+
+ services.openssh.enable = true;
   services.openssh.passwordAuthentication = false;
   networking.hosts = {
     "127.0.0.1" = [

@@ -17,6 +17,7 @@
 
   home.packages = with pkgs; [
     awscli
+    bless
     i3lock
     binutils
     bluez
