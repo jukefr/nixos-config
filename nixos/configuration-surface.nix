@@ -17,8 +17,6 @@
   virtualisation.docker.enable = true;
   virtualisation.libvirtd.enable = true;
   hardware.opengl.driSupport = true;
-  programs.ssh.setXAuthLocation = true;
-  programs.ssh.forwardX11 = true;
   nixpkgs.config.allowUnfree = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
