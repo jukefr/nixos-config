@@ -16,6 +16,8 @@ $ home-manager switch
 # Surface
 ![screen](https://i.imgur.com/6Sjgufq.png)
 
+You will also need my fork of [ nixos-surface ]( https://github.com/jukefr/nixos-surface ).
+
 Builds are distributed to the `builder` host.
 
 ```
