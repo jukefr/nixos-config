@@ -13,6 +13,7 @@
   networking.enableIPv6 = false;
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
   networking.hostId = "f1250e3b";
+  powerManagement.cpuFreqGovernor = "performance";
   virtualisation.docker.enable = true;
   virtualisation.libvirtd.enable = true;
   hardware.opengl.driSupport = true;

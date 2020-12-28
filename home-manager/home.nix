@@ -13,6 +13,8 @@
     BROWSER = "firefox";
   };
 
+  manual.html.enable = true;
+
   home.packages = with pkgs; [
     awscli
     i3lock
