@@ -3,13 +3,13 @@
 ```
 $ sudo ln -sf $PWD/nixos/configuration.nix /etc/nixos/configuration.nix
 
-$ sudo nixos-rebuild --upgrade switch
+$ sudo nixos-rebuild switch
 
 # Install home-manager at this point 
 
 $ ln -sf $PWD/home-manager/home.nix $HOME/.config/nixpgs/home.nix
 
-$ nix-channel --update && home-manager switch
+$ home-manager switch
 ```
 
 
@@ -21,12 +21,32 @@ Builds are distributed to the `builder` host.
 ```
 $ sudo ln -sf $PWD/nixos/configuration-surface.nix /etc/nixos/configuration.nix
 
-$ sudo nixos-rebuild --upgrade switch
+$ sudo nixos-rebuild switch
 
 # Install home-manager at this point 
 
 $ ln -sf $PWD/home-manager/home.nix $HOME/.config/nixpgs/home.nix
 
-$ nix-channel --update && env CURRENT_HOST=surface home-manager switch
+$ env CURRENT_HOST=surface home-manager switch
 ```
+
+# VFIO
+![screen](https://i.imgur.com/apytNk7.png)
+
+Use the Desktop machine as a Parsec host to stream games to the Surface machine via a KVM Windows VM with VFIO GPU passthrough.
+
+(virt-manager config not included, checkout out the arch wiki for how to setup, might add configs later)
+
+```
+$ sudo ln -sf $PWD/nixos/configuration-vfio.nix /etc/nixos/configuration.nix
+
+$ sudo nixos-rebuild switch # and probably reboot at this point
+
+# Install home-manager at this point
+
+$ ln -sf $PWD/home-manager/home.nix $HOME/nixpgs/home.nix
+
+$ home-manager switch
+```
+
 
