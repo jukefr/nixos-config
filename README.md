@@ -32,6 +32,7 @@ $ env CURRENT_HOST=surface home-manager switch
 
 # VFIO
 ![screen](https://i.imgur.com/apytNk7.png)
+![screen](https://i.imgur.com/rZmSGa2.png)
 
 Use the Desktop machine as a Parsec host to stream games to the Surface machine via a KVM Windows VM with VFIO GPU passthrough.
 
