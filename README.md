@@ -38,7 +38,7 @@ $ env CURRENT_HOST=surface home-manager switch
 
 Use the Desktop machine as a Parsec host to stream games to the Surface machine via a KVM Windows VM with VFIO GPU passthrough.
 
-(virt-manager config not included, checkout out the arch wiki for how to setup, might add configs later)
+Sample virt-manager XML included in `virt-manager/vfio-windows.xml`. Works perfect with latest nvidia drivers and Parsec host.
 
 ```
 $ sudo ln -sf $PWD/nixos/configuration-vfio.nix /etc/nixos/configuration.nix
