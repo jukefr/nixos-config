@@ -59,7 +59,7 @@ $ home-manager switch
   - [ ] ipts firmware
 - [ ] DRY up
   - [ ] X/noX module
-  - better way than env var deal with different hosts
+  - [ ] better way than env var deal with different hosts
 - [ ] create a module for 2x scaled wallpapers and only include x1 assets in repo and compile 2x assets at build on HiDPI screens
 - [ ] create a module to bootstrap win10 vfio qemu vm with virsh
   - [ ] win 10 iso dl
