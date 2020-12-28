@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./boot.nix
+    ./boot-grub.nix
     ./hardware-configuration-surface.nix
     ../../nixos-surface/surface.nix
     ../../nixos-config-private/wifi.nix

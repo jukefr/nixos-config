@@ -2,19 +2,31 @@
 
 {
   imports = [
-    ./boot-systemd.nix
     ./hardware-configuration.nix
   ];
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.extraModprobeConfig = "options kvm_intel nested=1";
+  boot.kernelParams = [ "pcie_acs_override=downstream,multifunction" "intel_iommu=on" "video=vesafb:off video=efifb:off" "vfio-pci.ids=10de:1b82,10de:10f0" ];
+  boot.kernelPatches = [{
+    name = "add-acs-overrides";
+    patch = ./acs.patch;
+  }];
+  boot.blacklistedKernelModules = [ "nouveau" "nvidia" ];
   virtualisation.docker.enable = true;
   virtualisation.libvirtd.enable = true;
   services.openssh.forwardX11 = true;
-  hardware.opengl.driSupport = true;
   nixpkgs.config.allowUnfree = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.opengl.driSupport32Bit = true;
-  hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
+  boot.kernelModules = [ "kvm-intel" "vfio_virqfd" "vfio_pci" "vfio_iommu_type1" "vfio" ];
+  boot.postBootCommands = ''
+    DEVS="0000:01:00.0 0000:01:00.1"
+
+    for DEV in $DEVS; do
+      echo "vfio-pci" > /sys/bus/pci/devices/$DEV/driver_override
+    done
+    modprobe -i vfio-pci
+  '';
   hardware.pulseaudio.support32Bit = true;
-  hardware.steam-hardware.enable = true; # for vr stuff
   environment.pathsToLink = [ "/libexec" ];
   networking.hostName = "nixos";
   time.timeZone = "Europe/Paris";

@@ -24,6 +24,7 @@
     bluez
     bluez-alsa
     bluez-tools
+    tmux
     docker-compose
     ctags
     etcd
