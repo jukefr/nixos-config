@@ -5,6 +5,7 @@
     ./boot-systemd.nix
     ./hardware-configuration.nix
   ];
+  services.openssh.permitRootLogin = "no";
   virtualisation.docker.enable = true;
   virtualisation.libvirtd.enable = true;
   services.openssh.forwardX11 = true;
