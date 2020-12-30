@@ -88,6 +88,11 @@
             notification = false;
           }
           {
+            command = "xss-lock -l $HOME/.sleep.sh";
+            always = true;
+            notification = false;
+          }
+          {
             command = "xset dpms 0 0 300";
             always = true;
             notification = false;

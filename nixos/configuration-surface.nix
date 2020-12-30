@@ -4,10 +4,14 @@
   imports = [
     ./boot-grub.nix
     ./hardware-configuration-surface.nix
+    ./graphics-intel.nix
     ../../nixos-surface/surface.nix
     ../../nixos-config-private/wifi.nix
   ];
+  networking.wireless.interfaces = ["wlp1s0"];
   boot.loader.grub.fontSize = 32;
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
   networking.wireless.userControlled.enable = true;
   services.xserver.libinput.enable = true;
   networking.enableIPv6 = false;
@@ -47,7 +51,7 @@
   hardware.pulseaudio.enable = true;
   users.users.user = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "libvirtd" "docker" "power" ];
+    extraGroups = [ "wheel" "libvirtd" "docker" "power" "lp" ];
   };
   system.autoUpgrade.enable = true;
   services.fail2ban.enable = true;

@@ -18,6 +18,7 @@
   home.packages = with pkgs; [
     awscli
     tigervnc
+    xss-lock
     bless
     i3lock
     binutils
