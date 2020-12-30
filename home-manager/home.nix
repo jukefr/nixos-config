@@ -63,7 +63,17 @@
   ];
 
   imports =
-    [ ./wallpaper.nix ./xresources.nix ./xsession.nix ./programs ./services ];
+    [
+      ./wallpaper.nix
+      ./xresources.nix
+      ./xsession.nix
+      ./programs
+      ./services
+      ../../nixos-config-private/aws.nix
+      ../../nixos-config-private/ssh.nix
+      ../../nixos-config-private/npm.nix
+
+    ];
 
   home.stateVersion = "21.03";
 }
