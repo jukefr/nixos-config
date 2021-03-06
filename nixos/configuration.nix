@@ -2,9 +2,13 @@
 
 {
   imports = [
-    ./boot-systemd.nix
+    ./boot-grub.nix
     ./hardware-configuration.nix
+    ./ledger.nix
   ];
+  #boot.kernelPackages = pkgs.linuxPackages_5_4;
+  #boot.extraModulePackages = [ v4l2loopback-dc ];
+
   services.openssh.permitRootLogin = "no";
   virtualisation.docker.enable = true;
   virtualisation.libvirtd.enable = true;
@@ -15,7 +19,12 @@
   hardware.opengl.driSupport32Bit = true;
   hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
   hardware.pulseaudio.support32Bit = true;
+  environment.systemPackages = with pkgs; [
+    (steam.override { extraPkgs = pkgs: [ mono gtk3 gtk3-x11 libgdiplus zlib ]; nativeOnly = true; }).run
+    #droidcam
+  ];
   hardware.steam-hardware.enable = true; # for vr stuff
+  programs.steam.enable = true;
   environment.pathsToLink = [ "/libexec" ];
   networking.hostName = "nixos";
   time.timeZone = "Europe/Paris";
@@ -26,9 +35,11 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
   services.fail2ban.enable = true;
+
+  users.groups.plugdev = { };
   users.users.user = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "libvirtd" "docker" "power" ];
+    extraGroups = [ "wheel" "libvirtd" "docker" "power" "plugdev" ];
     shell = pkgs.fish;
   };
   nix.trustedUsers = [

@@ -139,13 +139,13 @@
               "exec ${pkgs.i3lock}/bin/i3lock -i ${config.home.file.".lockscreen-image".source}";
 
           };
-          keycodebindings =  pkgs.lib.mkOptionDefault {
-              "232" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
-              "233" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +10%";
-              "121" = "exec ${pkgs.alsaUtils}/bin/amixer set Master toggle";
-              "122" = "exec ${pkgs.alsaUtils}/bin/amixer set Master 10%-";
-              "123" = "exec ${pkgs.alsaUtils}/bin/amixer set Master 10%+";
-            };
+        keycodebindings = pkgs.lib.mkOptionDefault {
+          "232" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
+          "233" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +10%";
+          "121" = "exec ${pkgs.alsaUtils}/bin/amixer set Master toggle";
+          "122" = "exec ${pkgs.alsaUtils}/bin/amixer set Master 10%-";
+          "123" = "exec ${pkgs.alsaUtils}/bin/amixer set Master 10%+";
+        };
       };
       extraConfig = "${cfg.extra}";
     };

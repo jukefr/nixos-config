@@ -3,7 +3,7 @@
 {
   programs.htop = {
     enable = true;
-    fields = [ "PID" "USER" "PERCENT_CPU" "PERCENT_MEM" "TIME" "COMM" ];
+    fields = [ "PID" "USER" "PERCENT_CPU" "PERCENT_MEM" "OOM" "IO_PRIORITY" "IO_READ_RATE" "IO_WRITE_RATE" "COMM" ];
     highlightBaseName = true;
     vimMode = true;
     showCpuUsage = true;

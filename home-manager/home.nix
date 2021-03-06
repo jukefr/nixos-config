@@ -16,7 +16,32 @@
   manual.html.enable = true;
 
   home.packages = with pkgs; [
+    monero-gui
+    rmapi
+    unp
+    openssl
+    peek
+    dbeaver
+    etcher
+    ffmpeg
+    filezilla
+    gnome3.gedit
+    gnome3.gnome-screenshot
+    gradle
+    jetbrains.idea-community
+    insomnia
+    ledger-live-desktop
+    ncdu
+    nmap
+    jdk
+    unrar
+    multimc
+    minecraft
+    youtube-dl
     awscli
+    gifsicle
+    piper
+    gnome3.nautilus
     tigervnc
     bless
     i3lock
@@ -30,7 +55,7 @@
     etcd
     fd
     hugo
-    gimp
+    gimp-with-plugins
     google-chrome # only for ms teams...
     gnumake
     grpc

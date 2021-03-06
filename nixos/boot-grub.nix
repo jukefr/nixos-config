@@ -3,13 +3,15 @@
 {
 
   boot.loader.grub = {
-     devices = [ "nodev"];
-     efiSupport = true;
-     enable = true;
-     font = "${pkgs.hack-font}/share/fonts/hack/Hack-Regular.ttf";
-     };
+    devices = [ "nodev" ];
+    efiSupport = true;
+    enable = true;
+    font = "${pkgs.hack-font}/share/fonts/hack/Hack-Regular.ttf";
+  };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
+  boot.loader.grub.useOSProber = true;
+  boot.loader.grub.configurationLimit = 42;
   boot.extraModprobeConfig = "options kvm_intel nested=1";
   services.xserver.enable = true;
   services.xserver.displayManager.lightdm.background = ../wallpapers/lockscreen-image;

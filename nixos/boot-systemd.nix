@@ -3,12 +3,12 @@
 {
 
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.systemd-boot.enable =true;
-#  boot.loader.efi.efiSysMountPoint = "/boot";
+  boot.loader.systemd-boot.enable = true;
   boot.extraModprobeConfig = "options kvm_intel nested=1";
   services.xserver.enable = true;
   services.xserver.displayManager.lightdm.background = ../wallpapers/lockscreen-image;
   services.xserver.displayManager.lightdm.greeters.mini.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 42;
   services.xserver.displayManager.lightdm.greeters.mini.user = "user";
   services.xserver.displayManager.lightdm.greeters.mini.extraConfig = ''
     [greeter-theme]
