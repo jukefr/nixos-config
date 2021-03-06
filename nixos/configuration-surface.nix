@@ -8,7 +8,7 @@
     ../../nixos-surface/surface.nix
     ../../nixos-config-private/wifi.nix
   ];
-  networking.wireless.interfaces = ["wlp1s0"];
+  networking.wireless.interfaces = [ "wlp1s0" ];
   boot.loader.grub.fontSize = 32;
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
@@ -56,21 +56,21 @@
   system.autoUpgrade.enable = true;
   services.fail2ban.enable = true;
   system.autoUpgrade.allowReboot = false;
-      nixpkgs.config.packageOverrides = pkgs: {
-        nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-          inherit pkgs;
-        };
-      };
- 
+  nixpkgs.config.packageOverrides = pkgs: {
+    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+      inherit pkgs;
+    };
+  };
+
   environment.systemPackages = [
     pkgs.acpi
     pkgs.acpid
-    pkgs.nur.repos.clefru.parsecgaming 	
+    pkgs.nur.repos.clefru.parsecgaming
   ];
   fonts.enableDefaultFonts = true;
   fonts.fonts = with pkgs; [ hack-font powerline-fonts terminus_font siji ];
 
- services.openssh.enable = true;
+  services.openssh.enable = true;
   services.openssh.passwordAuthentication = false;
   networking.hosts = {
     "127.0.0.1" = [
