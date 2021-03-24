@@ -3,8 +3,12 @@
 {
   programs.git = {
     enable = true;
-    userName = "Kevin Jullien";
-    userEmail = "git@juke.fr";
+    userName = "jukefr";
+    userEmail = "gh@juke.fr";
+    signing = {
+      key = "DA196F75E61208AF";
+      signByDefault = true;
+    };
     extraConfig = { core = { editor = "nvim"; }; pull = { rebase = false; }; };
   };
 }

@@ -3,7 +3,7 @@
 {
   imports = [
     ./filesystems.nix
-    ./boot-grub.nix
+    ./boot-systemd.nix
     ./hardware-configuration.nix
     ./ledger.nix
   ];
@@ -28,6 +28,10 @@
   services.gnome3.gnome-keyring.enable = true;
   hardware.steam-hardware.enable = true; # for vr stuff
   programs.steam.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
   environment.pathsToLink = [ "/libexec" ];
   networking.hostName = "nixos";
   time.timeZone = "Europe/Paris";

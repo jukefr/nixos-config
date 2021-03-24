@@ -16,6 +16,8 @@
   manual.html.enable = true;
 
   home.packages = with pkgs; [
+    tree
+    efibootmgr
     dotnet-sdk
     ngrok
     gnome3.gnome-disk-utility
