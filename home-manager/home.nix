@@ -16,6 +16,19 @@
   manual.html.enable = true;
 
   home.packages = with pkgs; [
+    dotnet-sdk
+    ngrok
+    gnome3.gnome-disk-utility
+    maven
+    ark
+    chromium
+    dconf
+    cargo
+    parted
+    wimlib
+    parted
+    zip
+    nixpkgs-fmt
     monero-gui
     rmapi
     unp
@@ -33,7 +46,7 @@
     ledger-live-desktop
     ncdu
     nmap
-    jdk
+    jdk11
     unrar
     multimc
     minecraft

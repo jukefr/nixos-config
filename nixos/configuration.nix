@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./filesystems.nix
     ./boot-grub.nix
     ./hardware-configuration.nix
     ./ledger.nix
@@ -21,8 +22,10 @@
   hardware.pulseaudio.support32Bit = true;
   environment.systemPackages = with pkgs; [
     (steam.override { extraPkgs = pkgs: [ mono gtk3 gtk3-x11 libgdiplus zlib ]; nativeOnly = true; }).run
+    ntfs3g
     #droidcam
   ];
+  services.gnome3.gnome-keyring.enable = true;
   hardware.steam-hardware.enable = true; # for vr stuff
   programs.steam.enable = true;
   environment.pathsToLink = [ "/libexec" ];
@@ -65,6 +68,12 @@
       "minio.cs"
     ];
   };
+
+  fileSystems."/home/user/repositories/fr/2b2t/backup" =
+  { device = "/dev/sdd1";
+    fsType = "ext4";
+  };
+
 
   system.stateVersion = "20.09";
 
