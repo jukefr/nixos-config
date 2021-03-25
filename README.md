@@ -1,3 +1,9 @@
+<div align="center">
+  <a href="https://github.com/jukefr/AnarchyX">
+  <img width="100%;"  src="https://user-images.githubusercontent.com/2154296/112428543-9a861f00-8d3b-11eb-88d7-72cf044aadc0.png">
+  </a>
+  <br>
+</div>
 
 # Desktop
 ![screen](https://i.ibb.co/1mN6KWy/2020-12-24-23-28-401.png)
